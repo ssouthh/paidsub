@@ -1,1 +1,10 @@
-{}
+{
+  "YEMQ-NVDS-HLL3-F2QB": {
+    "active": true,
+    "hwid": "",
+    "expires": 0,
+    "note": "Lifetime",
+    "created": "2026-02-20T20:30:15.332Z",
+    "first_used": null
+  }
+}
