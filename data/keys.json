@@ -10,10 +10,11 @@
   },
   "VGDN-VDW8-B2QH-AUN2": {
     "active": true,
-    "hwid": "",
+    "hwid": "test123",
     "expires": 0,
     "note": "Lifetime",
     "created": "2026-02-20T19:55:30.838Z",
-    "first_used": null
+    "first_used": "2026-02-20T19:55:41.511Z",
+    "last_check": "2026-02-20T19:55:41.511Z"
   }
 }
