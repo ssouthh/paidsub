@@ -9,7 +9,7 @@
     "last_check": "2026-02-20T20:11:47.504Z"
   },
   "VGDN-VDW8-B2QH-AUN2": {
-    "active": true,
+    "active": false,
     "hwid": "test123",
     "expires": 0,
     "note": "Lifetime",
