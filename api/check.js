@@ -1,6 +1,6 @@
-import fs from 'fs';
-import path from 'path';
-import crypto from 'crypto';
+const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
 
 const KEYS_FILE = path.join(process.cwd(), 'data', 'keys.json');
 const SERVER_SECRET = "MyS3cr3tK3y_Ch@ng3_Th1s!2024";
@@ -66,7 +66,7 @@ function xorEncrypt(code, key) {
     return Buffer.from(r).toString('hex');
 }
 
-export default async function handler(req, res) {
+module.exports = async (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     
     const key = req.query.key || "";
@@ -120,4 +120,4 @@ export default async function handler(req, res) {
         signature: sig,
         payload: payload
     });
-}
+};
