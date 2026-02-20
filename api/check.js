@@ -3,7 +3,7 @@ const path = require('path');
 const crypto = require('crypto');
 
 const KEYS_FILE = path.join(process.cwd(), 'data', 'keys.json');
-const SERVER_SECRET = "MyS3cr3tK3y_Ch@ng3_Th1s!2024";
+const SERVER_SECRET = "FJEUJFDujfdsu384&*&@&$#urejfdsnjfdsai8387y42jnijndsaSDDF";
 
 function loadKeys() {
     try {
