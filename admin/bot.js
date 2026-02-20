@@ -5,8 +5,8 @@ const path = require('path');
 // ============================================================
 // НАСТРОЙКИ - ЗАПОЛНИ СВОИ ДАННЫЕ
 // ============================================================
-const BOT_TOKEN = '8429997103:AAFOJHBMIksWcmdPCfzXZ7uiumGKD1def88';
-const ADMIN_IDS = ['7384085609']; // Можно несколько: ['123', '456']
+const BOT_TOKEN = '';
+const ADMIN_IDS = ['']; // Можно несколько: ['123', '456']
 
 const KEYS_FILE = path.join(__dirname, '../data/keys.json');
 
