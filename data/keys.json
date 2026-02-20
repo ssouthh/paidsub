@@ -1,20 +1,11 @@
 {
-  "ER6G-CMEN-88PP-4MF3": {
+  "CKY6-QWM9-7ZU9-5R3D": {
     "active": true,
     "hwid": "fffffffffd8ebb2f07e43127ffffffff8b73a43c2ddf145effffffffed29887dffffffffc45550942ddb97ba7bdafac8",
-    "expires": 1772220287,
+    "expires": 1772223355,
     "note": "7 days",
-    "created": "2026-02-20T19:24:47.887Z",
-    "first_used": "2026-02-20T19:54:56.771Z",
-    "last_check": "2026-02-20T19:54:56.771Z"
-  },
-  "VGDN-VDW8-B2QH-AUN2": {
-    "active": true,
-    "hwid": "test123",
-    "expires": 0,
-    "note": "Lifetime",
-    "created": "2026-02-20T19:55:30.838Z",
-    "first_used": "2026-02-20T19:55:41.511Z",
-    "last_check": "2026-02-20T19:55:41.511Z"
+    "created": "2026-02-20T20:15:55.032Z",
+    "first_used": "2026-02-20T20:22:08.351Z",
+    "last_check": "2026-02-20T20:22:08.351Z"
   }
 }
