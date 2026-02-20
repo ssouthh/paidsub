@@ -6,7 +6,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const BOT_TOKEN = '';           // Токен бота
 const ADMIN_IDS = [''];         // ID администраторов
 const API_URL = 'https://paidsub.vercel.app/api/manage';  // URL API управления
-const BOT_SECRET = 'FJEUJFDujfdsu384&*&@&$#urejfdsnjfdsai8387y42jnijndsaSDDF';                 // Секрет для API
+const BOT_SECRET = 'FJEkmfdsajj4234hdfasuyhdy6723yjHJFYDFYY';                 // Секрет для API
 
 // ============================================================
 // HTTP-запрос к API
