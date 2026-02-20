@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 
-const SERVER_SECRET = process.env.SERVER_SECRET || "FJEkmfdsajj4234hdfasuyhdy6723yjHJFYDFYY";
+const SERVER_SECRET = process.env.SERVER_SECRET || "FJEUJFDujfdsu384&*&@&$#urejfdsnjfdsai8387y42jnijndsaSDDF";
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO;
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH || "main";
