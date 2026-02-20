@@ -135,7 +135,7 @@ export default async function handler(req, res) {
             active: true,
             hwid: "",
             expires: days > 0 ? Math.floor(Date.now() / 1000) + (days * 86400) : 0,
-            note: note || "", //1
+            note: note || "",
             created: new Date().toISOString(),
             first_used: null
         };
