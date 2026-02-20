@@ -1,11 +1,20 @@
 {
-  "CKY6-QWM9-7ZU9-5R3D": {
+  "YEMQ-NVDS-HLL3-F2QB": {
     "active": true,
     "hwid": "fffffffffd8ebb2f07e43127ffffffff8b73a43c2ddf145effffffffed29887dffffffffc45550942ddb97ba7bdafac8",
-    "expires": 1772223355,
+    "expires": 0,
+    "note": "Lifetime",
+    "created": "2026-02-20T20:30:15.332Z",
+    "first_used": "2026-02-20T20:30:21.305Z",
+    "last_check": "2026-02-20T20:30:21.305Z"
+  },
+  "4L82-ZP4R-KAAB-N3F6": {
+    "active": true,
+    "hwid": "fffffffffd8ebb2f07e43127ffffffff8b73a43c2ddf145effffffffed29887dffffffffc45550942ddb97ba7bdafac8",
+    "expires": 1772224231,
     "note": "7 days",
-    "created": "2026-02-20T20:15:55.032Z",
-    "first_used": "2026-02-20T20:22:08.351Z",
-    "last_check": "2026-02-20T20:22:08.351Z"
+    "created": "2026-02-20T20:30:31.697Z",
+    "first_used": "2026-02-20T20:30:40.741Z",
+    "last_check": "2026-02-20T20:30:40.741Z"
   }
 }

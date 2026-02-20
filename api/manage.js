@@ -253,5 +253,16 @@ export default async function handler(req, res) {
         return res.status(200).json({ success: saved, message: saved ? "Note updated" : "Save failed" });
     }
 
+    if (action === "set_note") {
+        const key = (req.query.key || "").trim();
+        const note = req.query.note || "";
+        if (!key || !keys[key]) {
+            return res.status(200).json({ success: false, message: "Key not found" });
+        }
+        keys[key].note = note;
+        const saved = await saveKeysToGithub(keys, sha);
+        return res.status(200).json({ success: saved, message: saved ? "Note updated" : "Save failed" });
+    }
+
     return res.status(200).json({ success: false, message: "Unknown action" });
 }
