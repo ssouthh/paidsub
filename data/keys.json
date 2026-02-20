@@ -7,5 +7,13 @@
     "created": "2026-02-20T19:24:47.887Z",
     "first_used": "2026-02-20T19:54:56.771Z",
     "last_check": "2026-02-20T19:54:56.771Z"
+  },
+  "VGDN-VDW8-B2QH-AUN2": {
+    "active": true,
+    "hwid": "",
+    "expires": 0,
+    "note": "Lifetime",
+    "created": "2026-02-20T19:55:30.838Z",
+    "first_used": null
   }
 }
