@@ -1,11 +1,11 @@
 {
   "ER6G-CMEN-88PP-4MF3": {
     "active": true,
-    "hwid": "fffffffffd8ebb2f07e43127ffffffff8b73a43c2ddf145effffffffed29887dffffffffc45550942ddb97ba7bdafac8",
+    "hwid": "",
     "expires": 1772220287,
     "note": "7 days",
     "created": "2026-02-20T19:24:47.887Z",
-    "first_used": "2026-02-20T20:06:47.522Z",
+    "first_used": null,
     "last_check": "2026-02-20T20:06:47.522Z"
   },
   "VGDN-VDW8-B2QH-AUN2": {
