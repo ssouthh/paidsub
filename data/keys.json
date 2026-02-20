@@ -1,10 +1,11 @@
 {
   "7WTV-RXXN-HT57-J5WR": {
     "active": true,
-    "hwid": "",
+    "hwid": "fffffffffd8ebb2f07e43127ffffffff8b73a43c2ddf145effffffffed29887dffffffffc45550942ddb97ba7bdafac8",
     "expires": 1772230643,
     "note": "",
     "created": "2026-02-20T22:17:23.068Z",
-    "first_used": null
+    "first_used": "2026-02-20T22:17:28.996Z",
+    "last_check": "2026-02-20T22:17:28.996Z"
   }
 }
