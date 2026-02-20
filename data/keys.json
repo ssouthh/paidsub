@@ -1,0 +1,10 @@
+{
+  "DEMO-1234-5678-ABCD": {
+    "active": true,
+    "hwid": "",
+    "expires": 0,
+    "note": "Demo key",
+    "created": "2024-01-01T00:00:00.000Z",
+    "first_used": null
+  }
+}
