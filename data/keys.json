@@ -7,5 +7,13 @@
     "created": "2026-02-20T20:30:15.332Z",
     "first_used": "2026-02-20T20:30:21.305Z",
     "last_check": "2026-02-20T20:30:21.305Z"
+  },
+  "4L82-ZP4R-KAAB-N3F6": {
+    "active": true,
+    "hwid": "",
+    "expires": 1772224231,
+    "note": "7 days",
+    "created": "2026-02-20T20:30:31.697Z",
+    "first_used": null
   }
 }
