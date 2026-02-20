@@ -1,10 +1,10 @@
 {
-  "DEMO-1234-5678-ABCD": {
+  "ER6G-CMEN-88PP-4MF3": {
     "active": true,
     "hwid": "",
-    "expires": 0,
-    "note": "Demo key",
-    "created": "2024-01-01T00:00:00.000Z",
+    "expires": 1772220287,
+    "note": "7 days",
+    "created": "2026-02-20T19:24:47.887Z",
     "first_used": null
   }
 }
