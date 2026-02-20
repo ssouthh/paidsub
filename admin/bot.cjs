@@ -1,12 +1,9 @@
 const TelegramBot = require('node-telegram-bot-api');
 
-// ============================================================
-// НАСТРОЙКИ
-// ============================================================
 const BOT_TOKEN = '';           // Токен бота
 const ADMIN_IDS = [''];         // ID администраторов
-const API_URL = 'https://paidsub.vercel.app/api/manage';  // URL API управления
-const BOT_SECRET = 'FJEkmfdsajj4234hdfasuyhdy6723yjHJFYDFYY';                 // Секрет для API
+const API_URL = 'https://paidsub.vercel.app/api/manage';
+const BOT_SECRET = 'FJEkmfdsajj4234hdfasuyhdy6723yjHJFYDFYY';
 
 // ============================================================
 // HTTP-запрос к API
@@ -32,7 +29,7 @@ async function apiRequest(action, params = {}) {
 }
 
 // ============================================================
-// Генерация ключа (локально, для красоты)
+// Генерация ключа
 // ============================================================
 function generateKey() {
     const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -45,6 +42,11 @@ function generateKey() {
     }
     return result;
 }
+
+// ============================================================
+// Хранилище ожидания ввода заметки (chatId -> key)
+// ============================================================
+const waitingForNote = {};
 
 // ============================================================
 // Бот
@@ -98,7 +100,58 @@ bot.onText(/➕ Создать ключ/, (msg) => {
     );
 });
 
+// ============================================================
+// Обработка ввода заметки (слушаем все сообщения)
+// ============================================================
+bot.on('message', async (msg) => {
+    const chatId = msg.chat.id;
+    
+    // Проверяем ждём ли мы заметку от этого пользователя
+    if (!waitingForNote[chatId]) return;
+    
+    const text = msg.text || '';
+    
+    // Игнорируем кнопки клавиатуры и команды
+    if (text.startsWith('➕') || text.startsWith('📋') || 
+        text.startsWith('🔍') || text.startsWith('📊') || 
+        text.startsWith('/')) {
+        delete waitingForNote[chatId];
+        return;
+    }
+    
+    const key = waitingForNote[chatId];
+    delete waitingForNote[chatId];
+    
+    const note = text.trim();
+    
+    if (note.length === 0) {
+        bot.sendMessage(chatId, '❌ Пустая заметка, отменено.');
+        return;
+    }
+    
+    // Отправляем заметку на API
+    const result = await apiRequest('set_note', { key: key, note: note });
+    
+    if (result.success) {
+        bot.sendMessage(chatId,
+            `✅ Заметка установлена для \`${key}\`:\n\n${note}`,
+            {
+                parse_mode: 'Markdown',
+                reply_markup: {
+                    inline_keyboard: [
+                        [{ text: '◀️ К ключу', callback_data: `view_${key}` }]
+                    ]
+                }
+            }
+        );
+    } else {
+        bot.sendMessage(chatId, `❌ Ошибка: ${result.message}`);
+    }
+});
+
+// ============================================================
 // Обработка callback кнопок
+// ============================================================
 bot.on('callback_query', async (query) => {
     const chatId = query.message.chat.id;
     const msgId = query.message.message_id;
@@ -109,11 +162,11 @@ bot.on('callback_query', async (query) => {
         return;
     }
     
-    // ======== СОЗДАНИЕ КЛЮЧЕЙ ========
+    // ======== СОЗДАНИЕ КЛЮЧЕЙ (без заметки) ========
     
     if (data === 'create_lifetime') {
         const key = generateKey();
-        const result = await apiRequest('create', { key: key, days: '0', note: 'Lifetime' });
+        const result = await apiRequest('create', { key: key, days: '0' });
         
         if (result.success) {
             bot.editMessageText(
@@ -134,7 +187,7 @@ bot.on('callback_query', async (query) => {
         const days = parseInt(data.replace('create_', ''));
         if (!isNaN(days) && days > 0) {
             const key = generateKey();
-            const result = await apiRequest('create', { key: key, days: days.toString(), note: `${days} days` });
+            const result = await apiRequest('create', { key: key, days: days.toString() });
             
             if (result.success) {
                 const expDate = new Date(Date.now() + days * 86400000).toLocaleDateString('ru-RU');
@@ -161,7 +214,7 @@ bot.on('callback_query', async (query) => {
         return;
     }
     
-    // ======== ПРОСМОТР КЛЮЧА ========
+    // ======== ПРОСМОТР КЛЮЧА (+ кнопка заметки) ========
     
     if (data.startsWith('view_')) {
         const key = data.replace('view_', '');
@@ -202,6 +255,7 @@ bot.on('callback_query', async (query) => {
                         [{ text: k.active ? '🚫 Забанить' : '✅ Разбанить',
                            callback_data: `${k.active ? 'ban' : 'unban'}_${key}` }],
                         [{ text: '🔄 Сброс HWID', callback_data: `resethwid_${key}` }],
+                        [{ text: '📝 Заметка', callback_data: `setnote_${key}` }],
                         [{ text: '🗑️ Удалить', callback_data: `delete_${key}` }],
                         [{ text: '◀️ Назад к списку', callback_data: 'list_keys' }]
                     ]
@@ -209,6 +263,20 @@ bot.on('callback_query', async (query) => {
             }
         );
         bot.answerCallbackQuery(query.id);
+        return;
+    }
+    
+    // ======== ЗАМЕТКА ========
+    
+    if (data.startsWith('setnote_')) {
+        const key = data.replace('setnote_', '');
+        waitingForNote[chatId] = key;
+        
+        bot.sendMessage(chatId,
+            `📝 Введите заметку для ключа \`${key}\`:\n\n_(или нажмите любую кнопку меню для отмены)_`,
+            { parse_mode: 'Markdown' }
+        );
+        bot.answerCallbackQuery(query.id, { text: 'Введите заметку' });
         return;
     }
     
@@ -355,13 +423,15 @@ bot.onText(/📋 Список/, async (msg) => {
 bot.onText(/🔍 Найти/, (msg) => {
     if (!isAdmin(msg)) return;
     
+    // Отменяем ожидание заметки если было
+    delete waitingForNote[msg.chat.id];
+    
     bot.sendMessage(msg.chat.id, 'Введите ключ или его часть:');
     
     const listener = async (m) => {
         if (m.chat.id !== msg.chat.id) return;
         
         const search = m.text.trim();
-        // Игнорируем команды клавиатуры
         if (search.startsWith('➕') || search.startsWith('📋') || 
             search.startsWith('🔍') || search.startsWith('📊') || 
             search.startsWith('/')) {
