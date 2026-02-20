@@ -5,7 +5,7 @@
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO;
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH || "main";
-const BOT_SECRET = process.env.BOT_SECRET || "FJEUJFDujfdsu384&*&@&$#urejfdsnjfdsai8387y42jnijndsaSDDF";
+const BOT_SECRET = process.env.BOT_SECRET || "FJEkmfdsajj4234hdfasuyhdy6723yjHJFYDFYY";
 const KEYS_PATH = "data/keys.json";
 
 async function loadKeysFromGithub() {
