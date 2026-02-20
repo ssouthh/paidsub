@@ -241,7 +241,7 @@ export default async function handler(req, res) {
         }));
         return res.status(200).json({ success: true, results: results, count: results.length });
     }
-    // заметка
+    // за
     if (action === "set_note") {
         const key = (req.query.key || "").trim();
         const note = req.query.note || "";
