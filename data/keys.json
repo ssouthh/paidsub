@@ -1,10 +1,11 @@
 {
   "ADXJ-VFBG-F9X7-CD2A": {
     "active": true,
-    "hwid": "",
+    "hwid": "fffffffffd8ebb2f07e43127ffffffff8b73a43c2ddf145effffffffed29887dffffffffc45550942ddb97ba7bdafac8",
     "expires": 0,
     "note": "",
     "created": "2026-02-21T13:45:37.504Z",
-    "first_used": null
+    "first_used": "2026-02-21T13:45:46.490Z",
+    "last_check": "2026-02-21T13:45:46.490Z"
   }
 }
