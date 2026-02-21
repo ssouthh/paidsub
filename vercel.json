@@ -1,6 +1,7 @@
 {
   "version": 2,
   "routes": [
-    { "src": "/api/check", "dest": "/api/check.js" }
+    { "src": "/api/check", "dest": "/api/check.js" },
+    { "src": "/api/manage", "dest": "/api/manage.js" }
   ]
 }
