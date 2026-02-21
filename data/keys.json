@@ -7,5 +7,13 @@
     "created": "2026-02-21T13:45:37.504Z",
     "first_used": "2026-02-21T13:45:46.490Z",
     "last_check": "2026-02-21T14:42:06.935Z"
+  },
+  "BOOKER": {
+    "active": true,
+    "hwid": "",
+    "expires": 0,
+    "note": "",
+    "created": "2026-02-21T14:42:56.526Z",
+    "first_used": null
   }
 }
