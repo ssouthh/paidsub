@@ -80,7 +80,7 @@ async function saveKeysToGithub(keys, sha) {
 // ============================================================
 // Защищённый код (payload)
 // ============================================================
-const PROTECTED_CODE = ''; // пустой payloa
+const PROTECTED_CODE = ''; // пустой payload
 function sign(data) {
     return crypto.createHmac('sha256', SERVER_SECRET).update(data).digest('hex');
 }
