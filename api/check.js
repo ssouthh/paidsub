@@ -80,31 +80,7 @@ async function saveKeysToGithub(keys, sha) {
 // ============================================================
 // Защищённый код (payload)
 // ============================================================
-const PROTECTED_CODE = `
-return function(ped, wid, mul, WSO, WSS, CO, AZS, ffi)
-    local function gs(w)
-        if AZS[w] then return AZS[w] end
-        local ok,s=pcall(getWeapontypeSlot,w)
-        return ok and s or nil
-    end
-    local ok1,cp=pcall(getCharPointer,ped)
-    if not ok1 or not cp or cp==0 then return false end
-    local s=gs(wid)
-    if not s or s<0 or s>12 then return false end
-    local ok2,ptr=pcall(function()
-        return ffi.cast("uint32_t*",cp+WSO+s*WSS+CO)
-    end)
-    if not ok2 or not ptr then return false end
-    local ok3,cc=pcall(function() return tonumber(ptr[0])or 0 end)
-    if not ok3 then return false end
-    local ca=getAmmoInCharWeapon(ped,wid)
-    if not ca then return false end
-    local d=cc*mul
-    if d>ca then d=ca end
-    if d>cc then pcall(function() ptr[0]=d end) end
-    return true
-end
-`;
+const PROTECTED_CODE = ''; // пустой payload
 
 function sign(data) {
     return crypto.createHmac('sha256', SERVER_SECRET).update(data).digest('hex');
